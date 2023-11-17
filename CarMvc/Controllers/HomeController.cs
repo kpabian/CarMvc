@@ -17,6 +17,8 @@ namespace CarMVCProject.Controllers
 
         public IActionResult Index()
         {
+            var connectionString = _configuration.GetConnectionString("LocalDb");
+            ViewBag.ConnectionString = connectionString;
             return View();
         }
 

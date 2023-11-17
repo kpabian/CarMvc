@@ -12,6 +12,8 @@ namespace CarMvc
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddDbContext<SqlDbContext>(options =>
+                    options.UseSqlite(builder.Configuration.GetConnectionString("localDb")));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
